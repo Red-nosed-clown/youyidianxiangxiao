@@ -9,6 +9,7 @@
     "install:ci": "node scripts/install-ci.mjs",
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
+    "build:pages": "node scripts/build-pages.mjs",
     "start": "next dev --hostname 127.0.0.1",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"

@@ -54,19 +54,23 @@ npm run build
 
 
 
-## GitHub 与 Vercel 上线
+## 独立 GitHub Pages 网站
 
-计划仓库：`Red-nosed-clown/youyidianxiangxiao`，私有。仓库尚需 GitHub 授权后创建和推送；这里不是已经上线的链接。
+源码仓库：https://github.com/Red-nosed-clown/youyidianxiangxiao
 
-Vercel 导入该仓库时使用：
+独立站预定地址：https://red-nosed-clown.github.io/youyidianxiangxiao/
 
-- Framework Preset：Next.js
-- Root Directory：项目根目录
-- Install Command：npm ci
-- Build Command：npm run build
-- Output Directory：保留框架默认识别；项目已设置 output: export
-- 环境变量：无需配置
+首次在仓库 Settings → Pages 中选择 Deploy from a branch，分支 gh-pages，目录 /(root)，保存后等待发布完成。
 
-连接成功后，主分支的新提交可自动触发部署。实际访问地址以 Vercel 成功部署后的结果为准。仓库私有不等于网站私有，网站里的演示代码也不提供真实访问保护。
+构建发布文件：
 
-参考：https://vercel.com/docs/frameworks/full-stack/nextjs
+```sh
+npm ci
+npm run build:pages
+```
+
+将 out/ 的全部内容（包括 .nojekyll 和 _next/）提交到本仓库 gh-pages 分支根目录。main 保留源代码，gh-pages 保存发布产物。普通 npm run build 仍适用于域名根目录托管。
+
+GitHub Pages 地址使用 /youyidianxiangxiao 前缀；build:pages 会自动设置该前缀。图片、视频、图标和框架资源均已适配。此项目不依赖 web 仓库，也不会修改 bazi.html。
+
+仓库与网站均公开；示例幕后密码不是素材访问保护。独立站上线后，后续源代码修改仍需重新构建并更新 gh-pages 发布产物。
